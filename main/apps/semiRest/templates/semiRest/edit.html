@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+    <style>
+        .wrapper {
+            min-height: 800px;
+            width: 1000px;
+            margin: 0px auto;
+            padding: 50px 20px;
+        }
+        #main {
+            width: 50%;
+            padding: 20px;
+        }
+        div.container {
+            margin: 20px;
+            width: 400px;
+        }
+        h2 {
+            margin-bottom: 50px;
+        }
+        .text-red {
+            color: rgb(213, 63, 63);
+            display: inline;
+            font-size: 12px;
+        }
+        /* a {
+            display: block;
+        } */
+        button {
+            margin: 20px 0px;
+        }
+        .links {
+            display: block;
+        }
+        a {
+            display: inline;
+            padding: 0px 10px;
+        }
+        .left {
+            border-right: 1px solid rgb(80, 76, 76);
+            padding-right: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class='wrapper'>
+        <div id='main'>
+            <div class="container">
+                <h2>Edit User {{ user.id }}</h2>
+
+                <form action="{% url 'update_user' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label>First name:</label>
+                        <input type="text" class="form-control" name="name" value="{{ user.name }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="text" class="form-control" name="email" value="{{ user.email }}">
+                    </div>
+                    <input type="hidden" name="id" value="{{ user.id }}">
+
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <div class="links">
+                        <a class="" href="/users/{{ user.id }}">Show</a>
+                        <a href="{% url 'home' %}">Go Back</a>
+                    </div>
+                    
+                </form>
+            </div>
+            <div class="container"></div>
+        </div>
+    </div>
+</body>
+</html>

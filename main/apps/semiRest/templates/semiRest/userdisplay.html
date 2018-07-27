@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>user</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+    <style>
+        .wrapper {
+            min-height: 800px;
+            width: 1000px;
+            margin: 0px auto;
+            padding: 50px 20px;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0px;
+            margin: 20px 0px;
+        }
+        li {
+            margin: 8px 0px;
+        }
+        a {
+            display: inline;
+            padding: 0px 10px;
+        }
+        .left {
+            border-right: 1px solid rgb(80, 76, 76);
+            padding-right: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class='wrapper'>
+        <div id='main'>
+            <div class="container">
+                <h2>User {{ user.id }}</h2>
+                <ul>
+                    <li>full Name: {{ user.name }}</li>
+                    <li>Email: {{ user.email }}</li>
+                    <li>Created at: {{ user.created_at|date:"F dS, Y" }}</li>
+                </ul>
+                <a class="left" href="/users/{{ user.id }}/edit">Edit</a>
+                <a href="/users/{{ user.id }}/destroy">Delete</a>
+                </form>
+            </div>
+            <div class="container"></div>
+        </div>
+    </div>
+
+</body>
+</html>
